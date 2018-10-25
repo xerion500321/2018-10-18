@@ -40,10 +40,10 @@ public class Encrypt extends JFrame {
     private JMenuItem jmI3 = new JMenuItem("Exit");
     private JMenuBar jmb = new JMenuBar();
     public Encrypt() {
-        init();
+        inita();
     }
 
-    private void init() {
+    private void inita() {
         setBounds(screenW/2-frmW/2,screenH/2-frmH/2, 600, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setJMenuBar(jmb);
@@ -78,7 +78,7 @@ public class Encrypt extends JFrame {
                 try {
                     if (jc.showOpenDialog(Encrypt.this) == JFileChooser.APPROVE_OPTION) {
                         jta.setText("");
-                        String str ;
+                        String str = "" ;
                         File selectFile = jc.getSelectedFile();
                         FileReader fr = new FileReader(selectFile);
                         BufferedReader bfw = new BufferedReader(fr);

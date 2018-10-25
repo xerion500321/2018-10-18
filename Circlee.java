@@ -18,10 +18,10 @@ public class Circlee extends JFrame {
     private int frmW = 800;
     private int frmH = 600 ;
     public Circlee() {
-        init();
+        initb();
     }
 
-    private void init() {
+    private void initb() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(screenW/2-frmW/2,screenH/2-frmH/2,800, 600);
         this.cp = this.getContentPane();

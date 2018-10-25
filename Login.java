@@ -14,14 +14,14 @@ public class Login extends JFrame {
     private JLabel jlb2 = new JLabel("PW:", JLabel.RIGHT);
     private JTextField jtx = new JTextField();
     private JPasswordField jpx = new JPasswordField();
-    private JButton jbtn = new JButton("Keyboard");
+    private JButton jbtn1 = new JButton("Keyboard");
     private JButton jbtn2 = new JButton("Login");
     private JButton jbtn3 = new JButton("Exit");
     private Container cp;
     public Login() {
-        init();
+        initt();
     }
-    private void init() {
+    private void initt() {
         this.setBounds(screenW/2-frmW/2,screenH/2-frmH/2, 600, 200);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.cp = this.getContentPane();
@@ -32,17 +32,17 @@ public class Login extends JFrame {
         jpanCenter.add(jtx);
         jpanCenter.add(jlb2);
         jpanCenter.add(jpx);
-        jpanSouth.add(jbtn);
+        jpanSouth.add(jbtn1);
         jpanSouth.add(jbtn2);
         jpanSouth.add(jbtn3);
         jtx.setFont(new Font(null,Font.BOLD,25));
         jpx.setFont(new Font(null,Font.BOLD,25));
         jlb.setFont(new Font(null, Font.BOLD, 25));
         jlb2.setFont(new Font(null, Font.BOLD, 25));
-        jbtn.setFont(new Font(null, Font.BOLD, 25));
+        jbtn1.setFont(new Font(null, Font.BOLD, 25));
         jbtn2.setFont(new Font(null, Font.BOLD, 25));
         jbtn3.setFont(new Font(null, Font.BOLD, 25));
-        jbtn.addActionListener(new ActionListener() {
+        jbtn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Keyboard ky = new Keyboard(Login.this);
@@ -52,7 +52,7 @@ public class Login extends JFrame {
         jbtn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(jtx.getText().equals("h304")&& new String(jpx.getPassword()).equals("23323456")) {
+                if(jtx.getText().equals("h304")&&(new String(jpx.getPassword()).equals("23323456"))) {
                     Menu me = new Menu();
                     me.setVisible(true);
                     Login.this.dispose();

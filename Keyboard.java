@@ -5,15 +5,15 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class Keyboard extends JFrame {
-    private JLabel jlb = new JLabel("0");
+    private JPasswordField jpx = new JPasswordField();
     private JButton jbtn[] = new JButton[12];
     private String[] stra = new String[10];
     private Container cp;
     private JPanel jpannorth = new JPanel(new GridLayout(1,1,3,3));
     private JPanel jpancenter = new JPanel(new GridLayout(4, 3, 3, 3));
-    private Login lg;
-    public Keyboard(Login lg1) {
-        lg = lg1;
+    private Login ln;
+    public Keyboard(Login ln1) {
+        ln = ln1;
         init();
     }
     private void init() {
@@ -23,8 +23,8 @@ public class Keyboard extends JFrame {
         this.cp.setLayout(new BorderLayout(3, 3));
         this.cp.add(this.jpancenter,"Center");
         this.cp.add(this.jpannorth,"North");
-        this.jpannorth.add(jlb);
-        jlb.setFont(new Font(null,Font.BOLD,36));
+        this.jpannorth.add(jpx);
+        jpx.setFont(new Font(null,Font.BOLD,36));
         strss(stra);
         for (int i=0 ; i<10 ; i++){
             jbtn[i] = new JButton(stra[i]);
@@ -34,18 +34,18 @@ public class Keyboard extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JButton jbtn2 = (JButton) e.getSource();
-                    jlb.setText(jlb.getText()+jbtn2.getText());
+                    jpx.setText(jpx.getText()+jbtn2.getText());
                 }
             });
         }
-        jbtn[10].setText("Submit");
-        jbtn[11].setText("Reflash");
+        jbtn[10] = new JButton("Submit");
+        jbtn[11] = new JButton("Reflash");
         jpancenter.add(jbtn[10]);
         jpancenter.add(jbtn[11]);
         jbtn[10].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            lg.setpw(jlb.getText());
+            ln.setpw(new String(jpx.getText()));
             Keyboard.this.dispose();
                 }
         });
